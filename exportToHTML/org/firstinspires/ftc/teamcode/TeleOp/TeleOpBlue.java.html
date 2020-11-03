@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>TeleOpBlue.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+TeleOpBlue.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">org.firstinspires.ftc.teamcode.TeleOp</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.qualcomm.robotcore.eventloop.opmode.LinearOpMode</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.qualcomm.robotcore.eventloop.opmode.TeleOp</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.qualcomm.robotcore.hardware.DcMotor</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.qualcomm.robotcore.hardware.DcMotorSimple</span><span class="s0">;</span>
+
+
+
+<span class="s2">// maybe chnage the names casue FR also is used ofr File Reader i dont think we will need it but</span>
+<span class="s2">// the ide keeps inporting it</span>
+<span class="s0">public class </span><span class="s1">TeleOpBlue </span><span class="s0">extends </span><span class="s1">LinearOpMode{</span>
+    <span class="s0">private </span><span class="s1">DcMotor BR = </span><span class="s0">null;</span>
+    <span class="s0">private </span><span class="s1">DcMotor BL = </span><span class="s0">null;</span>
+    <span class="s0">private </span><span class="s1">DcMotor FR = </span><span class="s0">null;</span>
+    <span class="s0">private </span><span class="s1">DcMotor FL = </span><span class="s0">null;</span>
+<span class="s2">// please chcek the spelling of the motor names in the config file</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">runOpMode() </span><span class="s0">throws </span><span class="s1">InterruptedException {</span>
+        <span class="s1">BR = hardwareMap.dcMotor.get(</span><span class="s3">&quot;Bartholamew Rogers&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">BL = hardwareMap.dcMotor.get(</span><span class="s3">&quot;Barry Lee&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">FR = hardwareMap.dcMotor.get(</span><span class="s3">&quot;Fiona Romero&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">FL = hardwareMap.dcMotor.get(</span><span class="s3">&quot;Franchesca Lynas&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+
+        <span class="s1">BL.setDirection(DcMotor.Direction.REVERSE)</span><span class="s0">;</span>
+        <span class="s1">FL.setDirection(DcMotorSimple.Direction.REVERSE)</span><span class="s0">;</span>
+        <span class="s1">BR.setDirection(DcMotor.Direction.FORWARD)</span><span class="s0">;</span>
+        <span class="s1">FR.setDirection(DcMotorSimple.Direction.FORWARD)</span><span class="s0">;</span>
+
+
+        <span class="s1">waitForStart()</span><span class="s0">;</span>
+
+<span class="s2">/* 
+ 
+*/</span>
+
+            <span class="s2">//double x1 = 0;</span>
+           <span class="s2">// double y1 = 0;</span>
+
+
+            <span class="s0">while </span><span class="s1">(opModeIsActive()) {</span>
+
+           <span class="s2">// x1.setPower(gamepad1.left_stick_x);</span>
+          <span class="s2">//  y1.setPower(-gamepad1.left_stick_y);</span>
+
+           <span class="s0">double </span><span class="s1">y = -gamepad1.left_stick_y</span><span class="s0">;</span>
+           <span class="s0">double </span><span class="s1">x = gamepad1.left_stick_x</span><span class="s0">;</span>
+           <span class="s0">double </span><span class="s1">rx = gamepad1.right_stick_x</span><span class="s0">;</span>
+
+           <span class="s1">FL.setPower(y + x + rx)</span><span class="s0">;</span>
+           <span class="s1">BL.setPower(y - x + rx)</span><span class="s0">;</span>
+           <span class="s1">FL.setPower(y - x - rx)</span><span class="s0">;</span>
+           <span class="s1">BR.setPower(y + x - rx)</span><span class="s0">;</span>
+
+           <span class="s1">idle()</span><span class="s0">;</span>
+
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+
+    <span class="s1">}</span>
+
+
+</pre>
+</body>
+</html>
