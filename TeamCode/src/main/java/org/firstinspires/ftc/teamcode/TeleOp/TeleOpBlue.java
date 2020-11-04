@@ -53,14 +53,7 @@ public class TeleOpBlue extends LinearOpMode {
             double x = gamepad1.left_stick_x*1.5;
             double rx = gamepad1.right_stick_x;
 
-
-
-
-
-            FL.setPower(y + x + rx) ;
-            BL.setPower(y - x + rx) ;
-            FR.setPower(y - x - rx) ;
-            BR.setPower(y + x - rx) ;
+            wDrive(y, x, rx);
 
 
             idle();
@@ -68,6 +61,17 @@ public class TeleOpBlue extends LinearOpMode {
         }
 
 
+    }
+
+    private void wDrive(double y, double x, double rx) {
+        y = Math.abs(y) > 0.01 ? y : 0;
+        x = Math.abs(y) > 0.01 ? x : 0;
+        rx = Math.abs(y) > 0.01 ? rx : 0;
+
+        FL.setPower(y + x + rx) ;
+        BL.setPower(y - x + rx) ;
+        FR.setPower(y - x - rx) ;
+        BR.setPower(y + x - rx) ;
     }
 
 
