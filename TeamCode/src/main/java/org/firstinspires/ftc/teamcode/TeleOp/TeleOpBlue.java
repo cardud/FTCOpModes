@@ -22,10 +22,10 @@ public class TeleOpBlue extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
-        BR = hardwareMap.dcMotor.get("back_right_motor");
-        BL = hardwareMap.dcMotor.get("back_left_motor");
-        FR = hardwareMap.dcMotor.get("front_right_motor");
-        FL = hardwareMap.dcMotor.get("front_left_motor");
+        BR = hardwareMap.dcMotor.get("BR");
+        BL = hardwareMap.dcMotor.get("BL");
+        FR = hardwareMap.dcMotor.get("FR");
+        FL = hardwareMap.dcMotor.get("FL");
 
 
         BL.setDirection(DcMotorSimple.Direction.REVERSE);
