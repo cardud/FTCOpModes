@@ -11,14 +11,13 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 public class TeleOpBlue extends LinearOpMode {
 
 
-    // maybe chnage the names casue FR also is used ofr File Reader i dont think we will need it but
-// the ide keeps inporting it
+
 
     private DcMotor BR = null;
     private DcMotor BL = null;
     private DcMotor FR = null;
     private DcMotor FL = null;
-    // please chcek the spelling of the motor names in the config file
+
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -36,18 +35,11 @@ public class TeleOpBlue extends LinearOpMode {
 
         waitForStart();
 
-        /*
-
-         */
-
-        //double x1 = 0;
-        // double y1 = 0;
 
 
         while (opModeIsActive()) {
 
-            // x1.setPower(gamepad1.left_stick_x);
-            //  y1.setPower(-gamepad1.left_stick_y);
+
 
             double y = -gamepad1.left_stick_y;
             double x = gamepad1.left_stick_x*1.5;
