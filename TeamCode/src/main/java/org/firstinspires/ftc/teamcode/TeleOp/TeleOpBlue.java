@@ -36,6 +36,19 @@ public class TeleOpBlue extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
+
+              /*
+            Arm.setPower(.25);
+            if(gamepad1.left_bumper == true){
+                Arm.setDirection(DcMotorSimple.Direction.FORWARD);
+            } else{
+                Arm.setDirection(DcMotorSimple.Direction.REVERSE);
+            }
+
+            boolean shoot = gamepad1.b;
+*/
+
+
             double y = gamepad1.left_stick_y;
             double x = -gamepad1.left_stick_x*1.5;
             double rx = gamepad1.right_stick_x;
